@@ -43,7 +43,7 @@ public class SearchResult {
             WebElement sizeChartElement =
                     parentElement.findElement(By.xpath(".//button[text() = 'Size chart']"));
             sizeChartElement.click();
-            Thread.sleep(25000);
+            Thread.sleep(5000);
             
             return true;
         } catch (Exception e) {
@@ -118,7 +118,7 @@ public class SearchResult {
              */
             for (int i = 0; i < expectedTableHeaders.size(); i++) {
                 String expectedHeader = expectedTableHeaders.get(i);
-                int xpathIndex = 1;
+                int xpathIndex = i + 1;
 
                 WebElement actualTableHeaderElement =
                         driver.findElement(By.xpath("//table/thead/tr/th[" + xpathIndex + "]"));

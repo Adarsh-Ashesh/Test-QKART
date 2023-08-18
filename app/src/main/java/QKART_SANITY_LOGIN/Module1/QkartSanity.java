@@ -485,13 +485,13 @@ public class QkartSanity {
             // System.out.println("");
 
             // Execute Test Case 4
-            // totalTests += 1;
-            // status = TestCase04(driver);
-            // if (status) {
-            // passedTests += 1;
-            // }
+            totalTests += 1;
+            status = TestCase04(driver);
+            if (status) {
+            passedTests += 1;
+            }
 
-            // System.out.println("");
+            System.out.println("");
 
             // Execute Test Case 5
             // totalTests += 1;
@@ -503,20 +503,20 @@ public class QkartSanity {
             // System.out.println("");
 
             // Execute Test Case 6
-            totalTests += 1;
-            status = TestCase06(driver);
-            if (status) {
-            passedTests += 1;
-            }
+            // totalTests += 1;
+            // status = TestCase06(driver);
+            // if (status) {
+            // passedTests += 1;
+            // }
 
-            System.out.println("");
+            // System.out.println("");
 
-            // // Execute Test Case 7
-            // // totalTests += 1;
-            // // status = TestCase07(driver);
-            // // if (status) {
-            // // passedTests += 1;
-            // // }
+            //  Execute Test Case 7
+            // totalTests += 1;
+            // status = TestCase07(driver);
+            // if (status) {
+            // passedTests += 1;
+            // }
 
             // System.out.println("");
 

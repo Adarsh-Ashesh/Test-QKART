@@ -118,6 +118,9 @@ public class Checkout {
     public Boolean verifyInsufficientBalanceMessage() {
         try {
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 07: MILESTONE 6
+           
+
+
             return false;
         } catch (Exception e) {
             System.out.println(
