@@ -43,8 +43,8 @@ public class SearchResult {
             WebElement sizeChartElement =
                     parentElement.findElement(By.xpath(".//button[text() = 'Size chart']"));
             sizeChartElement.click();
-
-            Thread.sleep(2000);
+            Thread.sleep(25000);
+            
             return true;
         } catch (Exception e) {
             System.out.println("Exception while opening Size chart: " + e.getMessage());

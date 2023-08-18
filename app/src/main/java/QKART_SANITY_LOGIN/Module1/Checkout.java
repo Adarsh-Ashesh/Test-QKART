@@ -42,6 +42,7 @@ public class Checkout {
             // button[text()='Add']
             WebElement addButtonElement = driver.findElement(By.xpath(" //button[text()='Add']"));
             addButtonElement.click();
+            Thread.sleep(5000);
 
 
             return false;
@@ -65,22 +66,25 @@ public class Checkout {
              * Iterate through all the address boxes to find the address box with matching text,
              * addressToSelect and click on it
              */
+            WebElement addresElement =
+                    driver.findElement(By.xpath("//input[@type='radio']"));
 
-            List<WebElement> addresElements =
-                    driver.findElements(By.xpath("//input[@type='radio']"));
-                    Thread.sleep(300);
 
-            for (WebElement addresElement : addresElements) {
-                String actualAddress = addresElement.getText();
+            // List<WebElement> addresElements =
+            //         driver.findElements(By.xpath("//input[@type='radio']"));
+                    Thread.sleep(3000);
 
-                if (actualAddress.equals(addressToSelect)) {
+            // for (WebElement addresElement : addresElements) {
+            //     String actualAddress = addresElement.getText();
+
+            //     if (actualAddress.equals(addressToSelect)) {
                     addresElement.click();
                     return true;
-                }
-            }
+              //  }
+          //  }
 
-            System.out.println("Unable to find the given address");
-            return false;
+            // System.out.println("Unable to find the given address");
+            // return false;
         } catch (Exception e) {
             System.out.println(
                     "Exception Occurred while selecting the given address: " + e.getMessage());
