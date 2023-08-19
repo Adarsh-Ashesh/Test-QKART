@@ -484,7 +484,7 @@ public class QkartSanity {
 
             System.out.println("");
 
-            // Execute Test Case 4
+            //Execute Test Case 4
             totalTests += 1;
             status = TestCase04(driver);
             if (status) {
