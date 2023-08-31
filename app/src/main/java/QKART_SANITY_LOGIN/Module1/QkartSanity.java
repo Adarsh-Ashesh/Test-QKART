@@ -679,58 +679,58 @@ public class QkartSanity {
 
         try {
             // Execute Test Case 1
-            // totalTests += 1;
-            // takeScreenshot(driver, "StartTestCase", "TestCase01");
-            // status = TestCase01(driver);
-            // takeScreenshot(driver, "EndTestCase", "TestCase01");
-            // if (status) {
-            // passedTests += 1;
-            // }
+            totalTests += 1;
+            takeScreenshot(driver, "StartTestCase", "TestCase01");
+            status = TestCase01(driver);
+            takeScreenshot(driver, "EndTestCase", "TestCase01");
+            if (status) {
+            passedTests += 1;
+            }
 
-            // System.out.println("");
+            System.out.println("");
 
             // // Execute Test Case 2
-            // totalTests += 1;
-            // takeScreenshot(driver, "StartTestCase", "TestCase02");
-            // status = TestCase02(driver);
-            // takeScreenshot(driver, "EndTestCase", "TestCase02");
-            // if (status) {
-            // passedTests += 1;
-            // }
+            totalTests += 1;
+            takeScreenshot(driver, "StartTestCase", "TestCase02");
+            status = TestCase02(driver);
+            takeScreenshot(driver, "EndTestCase", "TestCase02");
+            if (status) {
+            passedTests += 1;
+            }
 
-            // System.out.println("");
+            System.out.println("");
             // Execute Test Case 3
-            // totalTests += 1;
-            // takeScreenshot(driver, "StartTestCase", "TestCase03");
-            // status = TestCase03(driver);
-            // takeScreenshot(driver, "EndTestCase", "TestCase03");
-            // if (status) {
-            // passedTests += 1;
-            // }
+            totalTests += 1;
+            takeScreenshot(driver, "StartTestCase", "TestCase03");
+            status = TestCase03(driver);
+            takeScreenshot(driver, "EndTestCase", "TestCase03");
+            if (status) {
+            passedTests += 1;
+            }
 
-            // System.out.println("");
+            System.out.println("");
 
             // Execute Test Case 4
-            // totalTests += 1;
-            // takeScreenshot(driver, "StartTestCase", "TestCase04");
-            // status = TestCase04(driver);
-            // takeScreenshot(driver, "EndTestCase", "TestCase04");
-            // if (status) {
-            // passedTests += 1;
-            // }
+            totalTests += 1;
+            takeScreenshot(driver, "StartTestCase", "TestCase04");
+            status = TestCase04(driver);
+            takeScreenshot(driver, "EndTestCase", "TestCase04");
+            if (status) {
+            passedTests += 1;
+            }
 
-            // System.out.println("");
+            System.out.println("");
 
             // Execute Test Case 5
-            // totalTests += 1;
-            // takeScreenshot(driver, "StartTestCase", "TestCase05");
-            // status = TestCase05(driver);
-            // takeScreenshot(driver, "EndTestCase", "TestCase05");
-            // if (status) {
-            // passedTests += 1;
-            // }
+            totalTests += 1;
+            takeScreenshot(driver, "StartTestCase", "TestCase05");
+            status = TestCase05(driver);
+            takeScreenshot(driver, "EndTestCase", "TestCase05");
+            if (status) {
+            passedTests += 1;
+            }
 
-            // System.out.println("");
+            System.out.println("");
 
             // Execute Test Case 6
             totalTests += 1;
@@ -744,15 +744,15 @@ public class QkartSanity {
             System.out.println("");
 
             // Execute Test Case 7
-            // totalTests += 1;
-            // takeScreenshot(driver, "StartTestCase", "TestCase07");
-            // status = TestCase07(driver);
-            // takeScreenshot(driver, "EndTestCase", "TestCase07");
-            // if (status) {
-            // passedTests += 1;
-            // }
+            totalTests += 1;
+            takeScreenshot(driver, "StartTestCase", "TestCase07");
+            status = TestCase07(driver);
+            takeScreenshot(driver, "EndTestCase", "TestCase07");
+            if (status) {
+            passedTests += 1;
+            }
 
-            // System.out.println("");
+            System.out.println("");
 
 
             // Execute Test Case 8
@@ -765,13 +765,13 @@ public class QkartSanity {
             System.out.println("");
 
             // Execute Test Case 9
-            // totalTests += 1;
-            // status = TestCase9(driver);
-            // if (status) {
-            // passedTests += 1;
-            // }
+            totalTests += 1;
+            status = TestCase9(driver);
+            if (status) {
+            passedTests += 1;
+            }
 
-            // System.out.println("");
+            System.out.println("");
 
             // Execute Test Case 10
             totalTests += 1;
