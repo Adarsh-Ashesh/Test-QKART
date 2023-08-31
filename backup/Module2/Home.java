@@ -2,12 +2,10 @@ package QKART_SANITY_LOGIN.Module1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -31,7 +29,6 @@ public class Home {
             WebElement logout_button = driver.findElement(By.className("MuiButton-text"));
             logout_button.click();
 
-            // SLEEP_STMT_10: Wait for Logout to complete
             // Wait for Logout to Complete
             Thread.sleep(3000);
 
@@ -54,18 +51,6 @@ public class Home {
             searchBox.clear();
             searchBox.sendKeys(product);
             Thread.sleep(2000);
-
-            WebDriverWait webDriverWait = new WebDriverWait(driver, 3);
-
-            ExpectedCondition<WebElement> searchResultsFoundCondition =
-                    ExpectedConditions.presenceOfElementLocated(
-                            By.xpath("//div[@class='MuiCardContent-root css-1qw96cp']"));
-
-            ExpectedCondition<WebElement> searchResultsNotFoundCondition = ExpectedConditions
-                    .presenceOfElementLocated(By.xpath("//h4[text() = ' No products found ']"));
-
-            webDriverWait.until(ExpectedConditions.or(searchResultsFoundCondition,
-                    searchResultsNotFoundCondition));
 
             return true;
 
@@ -267,31 +252,4 @@ public class Home {
             return false;
         }
     }
-
-    public boolean openNewTab() {
-
-        try {
-            JavascriptExecutor JavaScriptExecutor = ((JavascriptExecutor) driver);
-            JavaScriptExecutor.executeScript("window.open()");
-            Thread.sleep(1000);
-
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
-    }
-
-    public void switchToTab(Set<String> windows, int tabNo) throws InterruptedException {
-        int count = 0;
-        for (String window : windows) {
-            if (count == tabNo) {
-                driver.switchTo().window(window);
-            }
-            count++;
-        }
-
-        Thread.sleep(1000);
-    }
-
-
 }

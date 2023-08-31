@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -38,7 +37,7 @@ public class Register {
             // Concatenate the timestamp to string to form unique timestamp
             test_data_username = Username + "_" + String.valueOf(timestamp.getTime());
         else
-            test_data_username = Username;
+             test_data_username = Username;
 
         // Type the generated username in the username field
         username_txt_box.sendKeys(test_data_username);
@@ -63,14 +62,8 @@ public class Register {
         // Click the register now button
         register_now_button.click();
         // Wait for registration to complete
-        // Thread.sleep(3000);
+        Thread.sleep(3000);
 
-        // SLEEP_STMT_06: Wait for new user to get created in the backend
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        ExpectedCondition<Boolean> urlCondition = ExpectedConditions.urlContains("/login");
-        ExpectedCondition<WebElement> errorCondition = ExpectedConditions
-                .presenceOfElementLocated(By.xpath("//div[text()='Username already exists']"));
-        webDriverWait.until(ExpectedConditions.or(urlCondition, errorCondition));
 
         this.lastGeneratedUsername = test_data_username;
 

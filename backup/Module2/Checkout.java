@@ -44,9 +44,6 @@ public class Checkout {
             addButtonElement.click();
             Thread.sleep(5000);
 
-            WebDriverWait webDriverWait = new WebDriverWait(driver, 2);
-            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='" + addresString + "']")));
-
 
             return false;
 
@@ -57,6 +54,7 @@ public class Checkout {
 
         }
     }
+
 
     /*
      * Return Boolean denoting the status of selecting an available address
@@ -101,10 +99,6 @@ public class Checkout {
         try {
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 05: MILESTONE 4
             // Find the "PLACE ORDER" button and click on it
-        //    WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
-        //    webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='PLACE ORDER']")));
-         
-
             WebElement placeOrderElement =
                     driver.findElement(By.xpath("//button[text()='PLACE ORDER']"));
             placeOrderElement.click();
@@ -143,33 +137,4 @@ public class Checkout {
             return false;
         }
     }
-
-    public boolean verifyQKartProductIsDisplaying(int frame){
-          boolean condition = false;
-          WebElement firstIframe = driver.findElement(By.xpath("(//iframe)[" + frame + "]"));
-          driver.switchTo().frame(firstIframe);
-
-          WebElement viewCartElement = driver.findElement(By.xpath("//button[text()='View Cart']"));
-          WebElement buyNowElement = driver.findElement(By.xpath("//button[text()='Buy Now']"));
-
-          if(viewCartElement.isEnabled() && buyNowElement.isEnabled()){
-            condition = true;
-          }
-          driver.switchTo().defaultContent();
-          return condition;
-    }
-
-
-    public boolean verifyCoronaStatsAdvertisment(){
-        boolean condition = false;
-        WebElement adIframe = driver.findElement(By.xpath("(//iframe)[3]"));
-        driver.switchTo().frame(adIframe);
-    
-        WebElement covidElement = driver.findElement(By.xpath("//div[text()='COVID-19']"));
-        condition = covidElement.isDisplayed();
-
-
-        return condition;
-    }
-
 }
