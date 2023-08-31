@@ -658,14 +658,81 @@ public class QkartSanity {
         status = checkoutPage.verifyCoronaStatsAdvertisment();
         logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
 
+        status = checkoutPage.verifyContactUs();
+        logStatus("Step", "Contact us page", status ? "PASS" : "FAIL");
+
         return status;
     }
 
-    public static Boolean TestCase11(RemoteWebDriver driver) throws InterruptedException {
-        Boolean status = false;
-        // TODO: CRIO_TASK_MODULE_SYNCHRONISATION -
-        return status;
-    }
+    // public static Boolean TestCase11(RemoteWebDriver driver) throws InterruptedException {
+    //     Boolean status = false;
+    //     // TODO: CRIO_TASK_MODULE_SYNCHRONISATION -
+    //     logStatus("Start TestCase", "Test Case 11: Check for advertisements", "DONE");
+
+    //     // Go to the Register page
+    //     Register registration = new Register(driver);
+    //     registration.navigateToRegisterPage();
+
+    //     // Register a new user
+    //     status = registration.registerUser("testUser", "abc@123", true);
+    //     if (!status) {
+    //         logStatus("TestCase 11", "Test Case Failure. Check for advertisements", "FAIL");
+    //     }
+
+    //     // Save the username of the newly registered user
+    //     lastGeneratedUserName = registration.lastGeneratedUsername;
+
+    //     // Go to the login page
+    //     Login login = new Login(driver);
+    //     login.navigateToLoginPage();
+
+    //     // Login with the newly registered user's credentials
+    //     status = login.PerformLogin(lastGeneratedUserName, "abc@123");
+    //     if (!status) {
+    //         logStatus("Step Failure", "User Perform Login Failed", status ? "PASS" : "FAIL");
+    //         logStatus("End TestCase", "Test Case 10: Check for advertisements : ",
+    //                 status ? "PASS" : "FAIL");
+    //     }
+
+    //     // Go to the home page
+    //     Home homePage = new Home(driver);
+    //     homePage.navigateToHome();
+
+    //     // Find required products by searching and add them to the user's cart
+    //     status = homePage.searchForProduct("Yonex");
+    //     homePage.addProductToCart("YONEX Smash Badminton Racquet");
+        
+    //     // Click on the checkout button
+    //     homePage.clickCheckout();
+
+    //     // Add a new address on the Checkout page and select it
+    //     Checkout checkoutPage = new Checkout(driver);
+    //     checkoutPage.addNewAddress("Addr line 1 addr Line 2 addr line 3");
+    //     checkoutPage.selectAddress("Addr line 1 addr Line 2 addr line 3");
+
+    //     // Place the order
+    //     checkoutPage.placeOrder();
+    //     // SLEEP_STMT_04: Wait for place order to succeed and navigate to Thanks page
+    //     //Thread.sleep(3000);
+    //     WebDriverWait webDriverWait = new WebDriverWait(driver, 3);
+    //     webDriverWait.until(ExpectedConditions.urlContains("/thanks"));
+
+    //     // Check if placing order redirected to the Thansk page
+    //     status = driver.getCurrentUrl().endsWith("/thanks");
+
+    //     status = checkoutPage.verifyQKartProductIsDisplaying(1);
+    //     logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
+
+    //     status = checkoutPage.verifyQKartProductIsDisplaying(2);
+    //     logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
+
+    //     status = checkoutPage.verifyCoronaStatsAdvertisment();
+    //     logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
+       
+
+
+    //     return status;
+    // }
 
     public static void main(String[] args) throws InterruptedException, MalformedURLException {
         int totalTests = 0;

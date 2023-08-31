@@ -168,6 +168,16 @@ public class Checkout {
         WebElement covidElement = driver.findElement(By.xpath("//div[text()='COVID-19']"));
         condition = covidElement.isDisplayed();
 
+        driver.switchTo().defaultContent();
+        return condition;
+    }
+
+    public boolean verifyContactUs(){
+        boolean condition = false;
+    
+        WebElement cnusElement = driver.findElement(By.xpath("//p[text()='Contact us']"));
+        condition = cnusElement.isDisplayed();
+
 
         return condition;
     }
