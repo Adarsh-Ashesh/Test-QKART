@@ -169,17 +169,41 @@ public class Checkout {
         condition = covidElement.isDisplayed();
 
         driver.switchTo().defaultContent();
+        
+        WebElement cnusElement = driver.findElement(By.xpath("//p[text()='Contact us']"));
+        cnusElement.click();
         return condition;
+        
     }
 
-    public boolean verifyContactUs(){
+    public boolean verifyNameElement(){
         boolean condition = false;
-    
-        WebElement cnusElement = driver.findElement(By.xpath("//p[text()='Contact us']"));
-        condition = cnusElement.isDisplayed();
-
-
+   
+        WebElement nameElement = driver.findElement(By.xpath("//input[@placeholder='Name']"));
+        condition = nameElement.isDisplayed();
+       
         return condition;
+       
+    }
+
+    public boolean verifyEmailElement(){
+        boolean condition = false;
+   
+        WebElement emailElement = driver.findElement(By.xpath("//input[@placeholder='Email']"));
+        condition = emailElement.isDisplayed();
+       
+        return condition;
+       
+    }
+
+    public boolean verifyMeassageElement(){
+        boolean condition = false;
+   
+        WebElement messageElement = driver.findElement(By.xpath("//input[@placeholder='Message']"));
+        condition = messageElement.isDisplayed();
+       
+        return condition;
+       
     }
 
 }
