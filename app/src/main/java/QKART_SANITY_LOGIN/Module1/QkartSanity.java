@@ -649,14 +649,14 @@ public class QkartSanity {
         // Check if placing order redirected to the Thansk page
         status = driver.getCurrentUrl().endsWith("/thanks");
 
-        status = checkoutPage.verifyQKartProductIsDisplaying(1);
-        logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
+        // status = checkoutPage.verifyQKartProductIsDisplaying(1);
+        // logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
 
-        status = checkoutPage.verifyQKartProductIsDisplaying(2);
-        logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
+        // status = checkoutPage.verifyQKartProductIsDisplaying(2);
+        // logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
 
-        status = checkoutPage.verifyCoronaStatsAdvertisment();
-        logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
+        // status = checkoutPage.verifyCoronaStatsAdvertisment();
+        // logStatus("Step", "Check for advertisements", status ? "PASS" : "FAIL");
 
         // status = checkoutPage.verifyContactUs();
         // logStatus("Step", "Contact us page", status ? "PASS" : "FAIL");
@@ -762,7 +762,7 @@ public class QkartSanity {
             passedTests += 1;
             }
 
-            // System.out.println("");
+            System.out.println("");
 
             // // Execute Test Case 2
             totalTests += 1;

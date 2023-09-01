@@ -170,8 +170,6 @@ public class Checkout {
 
         driver.switchTo().defaultContent();
 
-        WebElement cnusElement = driver.findElement(By.xpath("//p[text()='Contact us']"));
-        cnusElement.click();
         Thread.sleep(3000);
         return condition;
         
@@ -179,11 +177,14 @@ public class Checkout {
 
     public boolean verifyNameElement() throws InterruptedException{
         boolean condition = false;
+
+        WebElement cnusElement = driver.findElement(By.xpath("//p[text()='Contact us']"));
+        cnusElement.click();
    
         WebElement nameElement = driver.findElement(By.xpath("//input[@placeholder='Name']"));
         condition = nameElement.isDisplayed();
     
-        nameElement.sendKeys("Adarsh");
+        nameElement.sendKeys("crio user");
         
         Thread.sleep(3000);
        
@@ -197,7 +198,7 @@ public class Checkout {
         WebElement emailElement = driver.findElement(By.xpath("//input[@placeholder='Email']"));
         condition = emailElement.isDisplayed();
 
-        emailElement.sendKeys("adarsh@gmail.com");
+        emailElement.sendKeys("criouser@gmail.com");
        
         return condition;
        
@@ -208,7 +209,7 @@ public class Checkout {
    
         WebElement messageElement = driver.findElement(By.xpath("//input[@placeholder='Message']"));
         condition = messageElement.isDisplayed();
-        messageElement.sendKeys("Good ");
+        messageElement.sendKeys("Testing the contact us page");
        
         return condition;
        
