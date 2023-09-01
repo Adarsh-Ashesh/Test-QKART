@@ -144,7 +144,7 @@ public class Checkout {
         }
     }
 
-    public boolean verifyQKartProductIsDisplaying(int frame){
+    public boolean verifyQKartProductIsDisplaying(int frame) throws InterruptedException{
           boolean condition = false;
           WebElement firstIframe = driver.findElement(By.xpath("(//iframe)[" + frame + "]"));
           driver.switchTo().frame(firstIframe);
@@ -155,10 +155,16 @@ public class Checkout {
           if(viewCartElement.isEnabled() && buyNowElement.isEnabled()){
             condition = true;
           }
-          driver.switchTo().defaultContent();
+          WebElement buyElement = driver.findElement(By.xpath("(//button[text()='Buy Now'])[1]"));
+          buyElement.click();
+          Thread.sleep(3000);
+          driver.navigate().back();
+
+          driver.switchTo().parentFrame();
           return condition;
     }
 
+    
 
     public boolean verifyCoronaStatsAdvertisment() throws InterruptedException{
         boolean condition = false;
@@ -169,6 +175,7 @@ public class Checkout {
         condition = covidElement.isDisplayed();
 
         driver.switchTo().defaultContent();
+        
 
         Thread.sleep(3000);
         return condition;

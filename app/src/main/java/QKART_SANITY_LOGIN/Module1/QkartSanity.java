@@ -596,7 +596,7 @@ public class QkartSanity {
     public static Boolean TestCase10(RemoteWebDriver driver) throws InterruptedException {
         Boolean status = false;
         // TODO: CRIO_TASK_MODULE_SYNCHRONISATION -
-        logStatus("Start TestCase", "Test Case 10: Check for advertisements", "DONE");
+        logStatus("Start TestCase", "Test Case 10: Check for contact us", "DONE");
 
         // Go to the Register page
         Register registration = new Register(driver);
@@ -605,7 +605,7 @@ public class QkartSanity {
         // Register a new user
         status = registration.registerUser("testUser", "abc@123", true);
         if (!status) {
-            logStatus("TestCase 10", "Test Case Failure. Check for advertisements", "FAIL");
+            logStatus("TestCase 10", "Test Case Failure. Check for contact us", "FAIL");
         }
 
         // Save the username of the newly registered user
@@ -619,7 +619,7 @@ public class QkartSanity {
         status = login.PerformLogin(lastGeneratedUserName, "abc@123");
         if (!status) {
             logStatus("Step Failure", "User Perform Login Failed", status ? "PASS" : "FAIL");
-            logStatus("End TestCase", "Test Case 10: Check for advertisements : ",
+            logStatus("End TestCase", "Test Case 10: Check for contact us : ",
                     status ? "PASS" : "FAIL");
         }
 
