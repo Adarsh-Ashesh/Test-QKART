@@ -160,7 +160,7 @@ public class Checkout {
     }
 
 
-    public boolean verifyCoronaStatsAdvertisment(){
+    public boolean verifyCoronaStatsAdvertisment() throws InterruptedException{
         boolean condition = false;
         WebElement adIframe = driver.findElement(By.xpath("(//iframe)[3]"));
         driver.switchTo().frame(adIframe);
@@ -169,18 +169,23 @@ public class Checkout {
         condition = covidElement.isDisplayed();
 
         driver.switchTo().defaultContent();
-        
+
         WebElement cnusElement = driver.findElement(By.xpath("//p[text()='Contact us']"));
         cnusElement.click();
+        Thread.sleep(3000);
         return condition;
         
     }
 
-    public boolean verifyNameElement(){
+    public boolean verifyNameElement() throws InterruptedException{
         boolean condition = false;
    
         WebElement nameElement = driver.findElement(By.xpath("//input[@placeholder='Name']"));
         condition = nameElement.isDisplayed();
+    
+        nameElement.sendKeys("Adarsh");
+        
+        Thread.sleep(3000);
        
         return condition;
        
@@ -191,6 +196,8 @@ public class Checkout {
    
         WebElement emailElement = driver.findElement(By.xpath("//input[@placeholder='Email']"));
         condition = emailElement.isDisplayed();
+
+        emailElement.sendKeys("adarsh@gmail.com");
        
         return condition;
        
@@ -201,6 +208,7 @@ public class Checkout {
    
         WebElement messageElement = driver.findElement(By.xpath("//input[@placeholder='Message']"));
         condition = messageElement.isDisplayed();
+        messageElement.sendKeys("Good ");
        
         return condition;
        
