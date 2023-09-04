@@ -31,6 +31,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.annotations.Test;
 
+
+@Listeners(ListenersTestNG.class)
 public class QKART_Tests {
 
     static RemoteWebDriver driver;
@@ -48,267 +50,268 @@ public class QKART_Tests {
     /*
      * Testcase01: Verify a new user can successfully register
      */
-         @Test
-         public void TestCase01() throws InterruptedException {
-        Boolean status;
-         logStatus("Start TestCase", "Test Case 1: Verify User Registration", "DONE");
-         takeScreenshot(driver, "StartTestCase", "TestCase1");
+//          @Test
+//          public void TestCase01() throws InterruptedException {
+//         Boolean status;
+//          logStatus("Start TestCase", "Test Case 1: Verify User Registration", "DONE");
+//          takeScreenshot(driver, "StartTestCase", "TestCase1");
 
-        // Visit the Registration page and register a new user
-        Register registration = new Register(driver);
-        registration.navigateToRegisterPage();
-         status = registration.registerUser("testUser", "abc@123", true);
-        assertTrue(status, "Failed to register new user");
+//         // Visit the Registration page and register a new user
+//         Register registration = new Register(driver);
+//         registration.navigateToRegisterPage();
+//          status = registration.registerUser("testUser", "abc@123", true);
+//         assertTrue(status, "Failed to register new user");
 
-        // Save the last generated username
-        lastGeneratedUserName = registration.lastGeneratedUsername;
+//         // Save the last generated username
+//         lastGeneratedUserName = registration.lastGeneratedUsername;
 
-        // Visit the login page and login with the previuosly registered user
-        Login login = new Login(driver);
-        login.navigateToLoginPage();
-         status = login.PerformLogin(lastGeneratedUserName, "abc@123");
-         logStatus("Test Step", "User Perform Login: ", status ? "PASS" : "FAIL");
-        assertTrue(status, "Failed to login with registered user");
+//         // Visit the login page and login with the previuosly registered user
+//         Login login = new Login(driver);
+//         login.navigateToLoginPage();
+//          status = login.PerformLogin(lastGeneratedUserName, "abc@123");
+//          logStatus("Test Step", "User Perform Login: ", status ? "PASS" : "FAIL");
+//         assertTrue(status, "Failed to login with registered user");
 
-        // Visit the home page and log out the logged in user
-        Home home = new Home(driver);
-        status = home.PerformLogout();
+//         // Visit the home page and log out the logged in user
+//         Home home = new Home(driver);
+//         status = home.PerformLogout();
 
-         logStatus("End TestCase", "Test Case 1: Verify user Registration : ", status
-         ? "PASS" : "FAIL");
-         takeScreenshot(driver, "EndTestCase", "TestCase1");
-    }
+//          logStatus("End TestCase", "Test Case 1: Verify user Registration : ", status
+//          ? "PASS" : "FAIL");
+//          takeScreenshot(driver, "EndTestCase", "TestCase1");
+//     }
 
-    @Test
+//     @Test
 
-    public void TestCase02() throws InterruptedException {
-        Boolean status;
-        logStatus("Start Testcase", "Test Case 2: Verify User Registration with an existing username ", "DONE");
+//     public void TestCase02() throws InterruptedException {
+//         Boolean status;
+//         logStatus("Start Testcase", "Test Case 2: Verify User Registration with an existing username ", "DONE");
 
-        // Visit the Registration page and register a new user
-        Register registration = new Register(driver);
-        registration.navigateToRegisterPage();
-        status = registration.registerUser("testUser", "abc@123", true);
-        logStatus("Test Step", "User Registration : ", status ? "PASS" : "FAIL");
-        // if (!status) {
-        //     logStatus("End TestCase", "Test Case 2: Verify user Registration : ", status ? "PASS" : "FAIL");
-        //     return false;
-        //  }
+//         // Visit the Registration page and register a new user
+//         Register registration = new Register(driver);
+//         registration.navigateToRegisterPage();
+//         status = registration.registerUser("testUser", "abc@123", true);
+//         logStatus("Test Step", "User Registration : ", status ? "PASS" : "FAIL");
+//         // if (!status) {
+//         //     logStatus("End TestCase", "Test Case 2: Verify user Registration : ", status ? "PASS" : "FAIL");
+//         //     return false;
+//         //  }
 
-        assertTrue(status, "Failed to register new user");
-        // Save the last generated username
-        lastGeneratedUserName = registration.lastGeneratedUsername;
+//         assertTrue(status, "Failed to register new user");
+//         // Save the last generated username
+//         lastGeneratedUserName = registration.lastGeneratedUsername;
 
-        // Visit the Registration page and try to register using the previously
-        // registered user's credentials
-        registration.navigateToRegisterPage();
-        status = registration.registerUser(lastGeneratedUserName, "abc@123", false);
+//         // Visit the Registration page and try to register using the previously
+//         // registered user's credentials
+//         registration.navigateToRegisterPage();
+//         status = registration.registerUser(lastGeneratedUserName, "abc@123", false);
 
-        // If status is true, then registration succeeded, else registration has
-        // failed. In this case registration failure means Success
-        logStatus("End TestCase", "Test Case 2: Verify user Registration : ", status ? "FAIL" : "PASS");
-        //return !status;
-        assertFalse(status, "Failed to login with registered user");
-    }
+//         // If status is true, then registration succeeded, else registration has
+//         // failed. In this case registration failure means Success
+//         logStatus("End TestCase", "Test Case 2: Verify user Registration : ", status ? "FAIL" : "PASS");
+//         //return !status;
+//         assertFalse(status, "Failed to login with registered user");
+//     }
 
-    @Test
-    public void TestCase03() throws InterruptedException {
-        logStatus("TestCase 3", "Start test case : Verify functionality of search box ", "DONE");
-        boolean status;
+//     @Test
+//     public void TestCase03() throws InterruptedException {
+//         logStatus("TestCase 3", "Start test case : Verify functionality of search box ", "DONE");
+//         boolean status;
 
-        // Visit the home page
-        Home homePage = new Home(driver);
-        homePage.navigateToHome();
+//         // Visit the home page
+//         Home homePage = new Home(driver);
+//         homePage.navigateToHome();
 
-        // Search for the "yonex" product
-        status = homePage.searchForProduct("YONEX");
+//         // Search for the "yonex" product
+//         status = homePage.searchForProduct("YONEX");
        
-        assertTrue(status, "YONEX product not found");
+//         assertTrue(status, "YONEX product not found");
 
-        // Fetch the search results
-        List<WebElement> searchResults = homePage.getSearchResults();
+//         // Fetch the search results
+//         List<WebElement> searchResults = homePage.getSearchResults();
 
-        // Verify the search results are available
-        // if (searchResults.size() == 0) {
-        //     logStatus("TestCase 3", "Test Case Failure. There were no results for the given search string", "FAIL");
-        //     return false;
-        // }
-        assertNotEquals(searchResults.size(),0,"Test Case Failure. There were no results for the given search string");
+//         // Verify the search results are available
+//         // if (searchResults.size() == 0) {
+//         //     logStatus("TestCase 3", "Test Case Failure. There were no results for the given search string", "FAIL");
+//         //     return false;
+//         // }
+//         assertNotEquals(searchResults.size(),0,"Test Case Failure. There were no results for the given search string");
 
-        for (WebElement webElement : searchResults) {
-            // Create a SearchResult object from the parent element
-            SearchResult resultelement = new SearchResult(webElement);
+//         for (WebElement webElement : searchResults) {
+//             // Create a SearchResult object from the parent element
+//             SearchResult resultelement = new SearchResult(webElement);
 
-            // Verify that all results contain the searched text
-            String elementText = resultelement.getTitleofResult();
-            // if (!elementText.toUpperCase().contains("YONEX")) {
-            //     logStatus("TestCase 3", "Test Case Failure. Test Results contains un-expected values: " + elementText,
-            //             "FAIL");
-            //     return false;
-            // }
-            assertTrue(elementText.toUpperCase().contains("YONEX"),"Test Case Failure. Test Results contains un-expected values: ");
-        }
+//             // Verify that all results contain the searched text
+//             String elementText = resultelement.getTitleofResult();
+//             // if (!elementText.toUpperCase().contains("YONEX")) {
+//             //     logStatus("TestCase 3", "Test Case Failure. Test Results contains un-expected values: " + elementText,
+//             //             "FAIL");
+//             //     return false;
+//             // }
+//             assertTrue(elementText.toUpperCase().contains("YONEX"),"Test Case Failure. Test Results contains un-expected values: ");
+//         }
 
-        logStatus("Step Success", "Successfully validated the search results ", "PASS");
+//         logStatus("Step Success", "Successfully validated the search results ", "PASS");
 
-        // Search for product
-        status = homePage.searchForProduct("Gesundheit");
-        // if (status) {
-        //     logStatus("TestCase 3", "Test Case Failure. Invalid keyword returned results", "FAIL");
-        //     return false;
-        // }
-        assertFalse(homePage.searchForProduct("Gesundheit"),"Test Case Failure. Invalid keyword returned results");
+//         // Search for product
+//         status = homePage.searchForProduct("Gesundheit");
+//         // if (status) {
+//         //     logStatus("TestCase 3", "Test Case Failure. Invalid keyword returned results", "FAIL");
+//         //     return false;
+//         // }
+//         assertFalse(homePage.searchForProduct("Gesundheit"),"Test Case Failure. Invalid keyword returned results");
 
-        // Verify no search results are found
-        searchResults = homePage.getSearchResults();
-        // if (searchResults.size() == 0) {
-        //     if (homePage.isNoResultFound()) {
-        //         logStatus("Step Success", "Successfully validated that no products found message is displayed", "PASS");
-        //     }
-        //     logStatus("TestCase 3", "Test Case PASS. Verified that no search results were found for the given text",
-        //             "PASS");
-        // } else {
-        //     logStatus("TestCase 3", "Test Case Fail. Expected: no results , actual: Results were available", "FAIL");
-        //     return false;
-        // }
-        assertTrue(searchResults.isEmpty(),"test case Failure, Results were available");
-        assertTrue(homePage.isNoResultFound(),"Test Case Fail. Expected: no results , actual: Results were available");
-        assertFalse(status);
-   }
-
-
-    @Test
-    public void TestCase04() throws InterruptedException {
-        logStatus("TestCase 4", "Start test case : Verify the presence of size Chart", "DONE");
-        boolean status = false;
-
-        // Visit home page
-        Home homePage = new Home(driver);
-        homePage.navigateToHome();
-
-        // Search for product and get card content element of search results
-        status = homePage.searchForProduct("Running Shoes");
-        List<WebElement> searchResults = homePage.getSearchResults();
-
-        // Create expected values
-        List<String> expectedTableHeaders = Arrays.asList("Size", "UK/INDIA", "EU", "HEEL TO TOE");
-        List<List<String>> expectedTableBody = Arrays.asList(Arrays.asList("6", "6", "40", "9.8"),
-                Arrays.asList("7", "7", "41", "10.2"), Arrays.asList("8", "8", "42", "10.6"),
-                Arrays.asList("9", "9", "43", "11"), Arrays.asList("10", "10", "44", "11.5"),
-                Arrays.asList("11", "11", "45", "12.2"), Arrays.asList("12", "12", "46", "12.6"));
-
-        // Verify size chart presence and content matching for each search result
-        for (WebElement webElement : searchResults) {
-            SearchResult result = new SearchResult(webElement);
-
-            // Verify if the size chart exists for the search result
-            if (result.verifySizeChartExists()) {
-                logStatus("Step Success", "Successfully validated presence of Size Chart Link", "PASS");
-
-                // Verify if size dropdown exists
-                status = result.verifyExistenceofSizeDropdown(driver);
-                logStatus("Step Success", "Validated presence of drop down", status ? "PASS" : "FAIL");
-
-                // Open the size chart
-                if (result.openSizechart()) {
-                    // Verify if the size chart contents matches the expected values
-                    if (result.validateSizeChartContents(expectedTableHeaders, expectedTableBody, driver)) {
-                        logStatus("Step Success", "Successfully validated contents of Size Chart Link", "PASS");
-                    } else {
-                        logStatus("Step Failure", "Failure while validating contents of Size Chart Link", "FAIL");
-                        status = false;
-                    }
-
-                    // Close the size chart modal
-                    status = result.closeSizeChart(driver);
-
-                } else {
-                    logStatus("TestCase 4", "Test Case Fail. Failure to open Size Chart", "FAIL");
-                    //return false;
-                    assertTrue(status);
-                }
-
-            } else {
-                logStatus("TestCase 4", "Test Case Fail. Size Chart Link does not exist", "FAIL");
-                //return false;
-                assertTrue(status);
-            }
-        }
-        logStatus("TestCase 4", "End Test Case: Validated Size Chart Details", status ? "PASS" : "FAIL");
-        //return status;
-        assertTrue(status);
-    }
+//         // Verify no search results are found
+//         searchResults = homePage.getSearchResults();
+//         // if (searchResults.size() == 0) {
+//         //     if (homePage.isNoResultFound()) {
+//         //         logStatus("Step Success", "Successfully validated that no products found message is displayed", "PASS");
+//         //     }
+//         //     logStatus("TestCase 3", "Test Case PASS. Verified that no search results were found for the given text",
+//         //             "PASS");
+//         // } else {
+//         //     logStatus("TestCase 3", "Test Case Fail. Expected: no results , actual: Results were available", "FAIL");
+//         //     return false;
+//         // }
+//         assertTrue(searchResults.isEmpty(),"test case Failure, Results were available");
+//         assertTrue(homePage.isNoResultFound(),"Test Case Fail. Expected: no results , actual: Results were available");
+//         assertFalse(status);
+//    }
 
 
-    @Test
-    public void TestCase05() throws InterruptedException {
-        Boolean status;
-        logStatus("Start TestCase", "Test Case 5: Verify Happy Flow of buying products", "DONE");
+//     @Test
+//     public void TestCase04() throws InterruptedException {
+//         logStatus("TestCase 4", "Start test case : Verify the presence of size Chart", "DONE");
+//         boolean status = false;
 
-        // Go to the Register page
-        Register registration = new Register(driver);
-        registration.navigateToRegisterPage();
+//         // Visit home page
+//         Home homePage = new Home(driver);
+//         homePage.navigateToHome();
 
-        // Register a new user
-        status = registration.registerUser("testUser", "abc@123", true);
-        // if (!status) {
-        //     logStatus("TestCase 5", "Test Case Failure. Happy Flow Test Failed", "FAIL");
-        // }
-        assertTrue(status,"Test Case Failure. Happy Flow Test Failed");
-        // Save the username of the newly registered user
-        lastGeneratedUserName = registration.lastGeneratedUsername;
+//         // Search for product and get card content element of search results
+//         status = homePage.searchForProduct("Running Shoes");
+//         List<WebElement> searchResults = homePage.getSearchResults();
 
-        // Go to the login page
-        Login login = new Login(driver);
-        login.navigateToLoginPage();
+//         // Create expected values
+//         List<String> expectedTableHeaders = Arrays.asList("Size", "UK/INDIA", "EU", "HEEL TO TOE");
+//         List<List<String>> expectedTableBody = Arrays.asList(Arrays.asList("6", "6", "40", "9.8"),
+//                 Arrays.asList("7", "7", "41", "10.2"), Arrays.asList("8", "8", "42", "10.6"),
+//                 Arrays.asList("9", "9", "43", "11"), Arrays.asList("10", "10", "44", "11.5"),
+//                 Arrays.asList("11", "11", "45", "12.2"), Arrays.asList("12", "12", "46", "12.6"));
 
-        // Login with the newly registered user's credentials
-        status = login.PerformLogin(lastGeneratedUserName, "abc@123");
-        // if (!status) {
-        //     logStatus("Step Failure", "User Perform Login Failed", status ? "PASS" : "FAIL");
-        //     logStatus("End TestCase", "Test Case 5: Happy Flow Test Failed : ", status ? "PASS" : "FAIL");
-        // }
-        assertTrue(status,"User Perform Login Failed");
+//         // Verify size chart presence and content matching for each search result
+//         for (WebElement webElement : searchResults) {
+//             SearchResult result = new SearchResult(webElement);
 
-        // Go to the home page
-        Home homePage = new Home(driver);
-        homePage.navigateToHome();
+//             // Verify if the size chart exists for the search result
+//             if (result.verifySizeChartExists()) {
+//                 logStatus("Step Success", "Successfully validated presence of Size Chart Link", "PASS");
 
-        // Find required products by searching and add them to the user's cart
-        status = homePage.searchForProduct("YONEX");
-        homePage.addProductToCart("YONEX Smash Badminton Racquet");
-        status = homePage.searchForProduct("Tan");
-        homePage.addProductToCart("Tan Leatherette Weekender Duffle");
+//                 // Verify if size dropdown exists
+//                 status = result.verifyExistenceofSizeDropdown(driver);
+//                 logStatus("Step Success", "Validated presence of drop down", status ? "PASS" : "FAIL");
 
-        // Click on the checkout button
-        homePage.clickCheckout();
+//                 // Open the size chart
+//                 if (result.openSizechart()) {
+//                     // Verify if the size chart contents matches the expected values
+//                     if (result.validateSizeChartContents(expectedTableHeaders, expectedTableBody, driver)) {
+//                         logStatus("Step Success", "Successfully validated contents of Size Chart Link", "PASS");
+//                     } else {
+//                         logStatus("Step Failure", "Failure while validating contents of Size Chart Link", "FAIL");
+//                         status = false;
+//                     }
 
-        // Add a new address on the Checkout page and select it
-        Checkout checkoutPage = new Checkout(driver);
-        checkoutPage.addNewAddress("Addr line 1 addr Line 2 addr line 3");
-        checkoutPage.selectAddress("Addr line 1 addr Line 2 addr line 3");
+//                     // Close the size chart modal
+//                     status = result.closeSizeChart(driver);
 
-        // Place the order
-        checkoutPage.placeOrder();
+//                 } else {
+//                     logStatus("TestCase 4", "Test Case Fail. Failure to open Size Chart", "FAIL");
+//                     //return false;
+//                     assertTrue(status);
+//                 }
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.urlToBe("https://crio-qkart-frontend-qa.vercel.app/thanks"));
-
-        // Check if placing order redirected to the Thansk page
-        status = driver.getCurrentUrl().endsWith("/thanks");
-        assertTrue(status);
-        // Go to the home page
-        homePage.navigateToHome();
-
-        // Log out the user
-        homePage.PerformLogout();
-
-        logStatus("End TestCase", "Test Case 5: Happy Flow Test Completed : ", status ? "PASS" : "FAIL");
-        //return status;
-    }
+//             } else {
+//                 logStatus("TestCase 4", "Test Case Fail. Size Chart Link does not exist", "FAIL");
+//                 //return false;
+//                 assertTrue(status);
+//             }
+//         }
+//         logStatus("TestCase 4", "End Test Case: Validated Size Chart Details", status ? "PASS" : "FAIL");
+//         //return status;
+//         assertTrue(status);
+//     }
 
 
-    @Test
+//     @Test
+//     public void TestCase05() throws InterruptedException {
+//         Boolean status;
+//         logStatus("Start TestCase", "Test Case 5: Verify Happy Flow of buying products", "DONE");
+
+//         // Go to the Register page
+//         Register registration = new Register(driver);
+//         registration.navigateToRegisterPage();
+
+//         // Register a new user
+//         status = registration.registerUser("testUser", "abc@123", true);
+//         // if (!status) {
+//         //     logStatus("TestCase 5", "Test Case Failure. Happy Flow Test Failed", "FAIL");
+//         // }
+//         assertTrue(status,"Test Case Failure. Happy Flow Test Failed");
+//         // Save the username of the newly registered user
+//         lastGeneratedUserName = registration.lastGeneratedUsername;
+
+//         // Go to the login page
+//         Login login = new Login(driver);
+//         login.navigateToLoginPage();
+
+//         // Login with the newly registered user's credentials
+//         status = login.PerformLogin(lastGeneratedUserName, "abc@123");
+//         // if (!status) {
+//         //     logStatus("Step Failure", "User Perform Login Failed", status ? "PASS" : "FAIL");
+//         //     logStatus("End TestCase", "Test Case 5: Happy Flow Test Failed : ", status ? "PASS" : "FAIL");
+//         // }
+//         assertTrue(status,"User Perform Login Failed");
+
+//         // Go to the home page
+//         Home homePage = new Home(driver);
+//         homePage.navigateToHome();
+
+//         // Find required products by searching and add them to the user's cart
+//         status = homePage.searchForProduct("YONEX");
+//         homePage.addProductToCart("YONEX Smash Badminton Racquet");
+//         status = homePage.searchForProduct("Tan");
+//         homePage.addProductToCart("Tan Leatherette Weekender Duffle");
+
+//         // Click on the checkout button
+//         homePage.clickCheckout();
+
+//         // Add a new address on the Checkout page and select it
+//         Checkout checkoutPage = new Checkout(driver);
+//         checkoutPage.addNewAddress("Addr line 1 addr Line 2 addr line 3");
+//         checkoutPage.selectAddress("Addr line 1 addr Line 2 addr line 3");
+
+//         // Place the order
+//         checkoutPage.placeOrder();
+
+//         WebDriverWait wait = new WebDriverWait(driver, 30);
+//         wait.until(ExpectedConditions.urlToBe("https://crio-qkart-frontend-qa.vercel.app/thanks"));
+
+//         // Check if placing order redirected to the Thansk page
+//         status = driver.getCurrentUrl().endsWith("/thanks");
+//         assertTrue(status);
+//         // Go to the home page
+//         homePage.navigateToHome();
+
+//         // Log out the user
+//         homePage.PerformLogout();
+
+//         logStatus("End TestCase", "Test Case 5: Happy Flow Test Completed : ", status ? "PASS" : "FAIL");
+//         //return status;
+//     }
+
+
+    @Test(priority = 6, description = "This is my testcase no. 6", groups = {"Regression_Test"})
+    @Parameters({"Xtend","Yarine"})
     public void TestCase06() throws InterruptedException {
         Boolean status;
         logStatus("Start TestCase", "Test Case 6: Verify that cart can be edited", "DONE");
@@ -370,7 +373,8 @@ public class QKART_Tests {
     }
 
 
-    @Test
+    @Test(priority = 7, description = "This is my testcase no. 7", groups = {"Sanity_test"})
+    @Parameters({"Stylecon"})
     public void TestCase07() throws InterruptedException {
         Boolean status;
         logStatus("Start TestCase",
@@ -417,255 +421,255 @@ public class QKART_Tests {
     }
 
 
-    @Test
-    public void TestCase08() throws InterruptedException {
-        Boolean status = false;
+    // @Test
+    // public void TestCase08() throws InterruptedException {
+    //     Boolean status = false;
 
-        // logStatus("Start TestCase",
-        //         "Test Case 8: Verify that product added to cart is available when a new tab is opened",
-        //         "DONE");
-        // takeScreenshot(driver, "StartTestCase", "TestCase09");
+    //     // logStatus("Start TestCase",
+    //     //         "Test Case 8: Verify that product added to cart is available when a new tab is opened",
+    //     //         "DONE");
+    //     // takeScreenshot(driver, "StartTestCase", "TestCase09");
 
-        Register registration = new Register(driver);
-        registration.navigateToRegisterPage();
-        status = registration.registerUser("testUser", "abc@123", true);
+    //     Register registration = new Register(driver);
+    //     registration.navigateToRegisterPage();
+    //     status = registration.registerUser("testUser", "abc@123", true);
        
-        assertTrue(status,"User Perform Registration Failed");
-        lastGeneratedUserName = registration.lastGeneratedUsername;
+    //     assertTrue(status,"User Perform Registration Failed");
+    //     lastGeneratedUserName = registration.lastGeneratedUsername;
 
-        Login login = new Login(driver);
-        login.navigateToLoginPage();
-        status = login.PerformLogin(lastGeneratedUserName, "abc@123");
+    //     Login login = new Login(driver);
+    //     login.navigateToLoginPage();
+    //     status = login.PerformLogin(lastGeneratedUserName, "abc@123");
        
-        assertTrue(status, "User Perform Login Failed");
+    //     assertTrue(status, "User Perform Login Failed");
 
-        Home homePage = new Home(driver);
-        homePage.navigateToHome();
+    //     Home homePage = new Home(driver);
+    //     homePage.navigateToHome();
 
-        status = homePage.searchForProduct("YONEX");
-        homePage.addProductToCart("YONEX Smash Badminton Racquet");
+    //     status = homePage.searchForProduct("YONEX");
+    //     homePage.addProductToCart("YONEX Smash Badminton Racquet");
 
-        String currentURL = driver.getCurrentUrl();
+    //     String currentURL = driver.getCurrentUrl();
 
-        driver.findElement(By.linkText("Privacy policy")).click();
-        Set<String> handles = driver.getWindowHandles();
-        driver.switchTo().window(handles.toArray(new String[handles.size()])[1]);
+    //     driver.findElement(By.linkText("Privacy policy")).click();
+    //     Set<String> handles = driver.getWindowHandles();
+    //     driver.switchTo().window(handles.toArray(new String[handles.size()])[1]);
 
-        driver.get(currentURL);
-        Thread.sleep(2000);
+    //     driver.get(currentURL);
+    //     Thread.sleep(2000);
 
-        List<String> expectedResult = Arrays.asList("YONEX Smash Badminton Racquet");
-        status = homePage.verifyCartContents(expectedResult);
+    //     List<String> expectedResult = Arrays.asList("YONEX Smash Badminton Racquet");
+    //     status = homePage.verifyCartContents(expectedResult);
 
-        assertTrue(status,"Searching for YONEX is failed");
-        driver.close();
+    //     assertTrue(status,"Searching for YONEX is failed");
+    //     driver.close();
 
-        driver.switchTo().window(handles.toArray(new String[handles.size()])[0]);
+    //     driver.switchTo().window(handles.toArray(new String[handles.size()])[0]);
 
         
-    }
+    // }
 
 
-    @Test
-    public void TestCase09() throws InterruptedException {
-        Boolean status = false;
+    // @Test
+    // public void TestCase09() throws InterruptedException {
+    //     Boolean status = false;
 
-        // logStatus("Start TestCase",
-        //         "Test Case 09: Verify that the Privacy Policy, About Us are displayed correctly ",
-        //         "DONE");
-        // takeScreenshot(driver, "StartTestCase", "TestCase09");
+    //     // logStatus("Start TestCase",
+    //     //         "Test Case 09: Verify that the Privacy Policy, About Us are displayed correctly ",
+    //     //         "DONE");
+    //     // takeScreenshot(driver, "StartTestCase", "TestCase09");
 
-        Register registration = new Register(driver);
-        registration.navigateToRegisterPage();
-        status = registration.registerUser("testUser", "abc@123", true);
+    //     Register registration = new Register(driver);
+    //     registration.navigateToRegisterPage();
+    //     status = registration.registerUser("testUser", "abc@123", true);
        
-        assertTrue(status,"User Perform Registration Failed");
-        lastGeneratedUserName = registration.lastGeneratedUsername;
+    //     assertTrue(status,"User Perform Registration Failed");
+    //     lastGeneratedUserName = registration.lastGeneratedUsername;
 
-        Login login = new Login(driver);
-        login.navigateToLoginPage();
-        status = login.PerformLogin(lastGeneratedUserName, "abc@123");
+    //     Login login = new Login(driver);
+    //     login.navigateToLoginPage();
+    //     status = login.PerformLogin(lastGeneratedUserName, "abc@123");
        
-        assertTrue(status, "User Perform Login Failed");
+    //     assertTrue(status, "User Perform Login Failed");
 
-        Home homePage = new Home(driver);
-        homePage.navigateToHome();
+    //     Home homePage = new Home(driver);
+    //     homePage.navigateToHome();
 
-        String basePageURL = driver.getCurrentUrl();
+    //     String basePageURL = driver.getCurrentUrl();
 
-        driver.findElement(By.linkText("Privacy policy")).click();
-        status = driver.getCurrentUrl().equals(basePageURL);
+    //     driver.findElement(By.linkText("Privacy policy")).click();
+    //     status = driver.getCurrentUrl().equals(basePageURL);
 
-        // if (!status) {
-        //     logStatus("Step Failure", "Verifying parent page url didn't change on privacy policy link click failed", status ? "PASS" : "FAIL");
-        //     takeScreenshot(driver, "Failure", "TestCase09");
-        //     logStatus("End TestCase",
-        //             "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
-        //             status ? "PASS" : "FAIL");
-        // }
-        assertTrue(status,"Verifying parent page url didn't change on privacy policy link click failed");
+    //     // if (!status) {
+    //     //     logStatus("Step Failure", "Verifying parent page url didn't change on privacy policy link click failed", status ? "PASS" : "FAIL");
+    //     //     takeScreenshot(driver, "Failure", "TestCase09");
+    //     //     logStatus("End TestCase",
+    //     //             "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
+    //     //             status ? "PASS" : "FAIL");
+    //     // }
+    //     assertTrue(status,"Verifying parent page url didn't change on privacy policy link click failed");
 
-        Set<String> handles = driver.getWindowHandles();
-        driver.switchTo().window(handles.toArray(new String[handles.size()])[1]);
-        WebElement PrivacyPolicyHeading = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/h2"));
-        status = PrivacyPolicyHeading.getText().equals("Privacy Policy");
-        // if (!status) {
-        //     logStatus("Step Failure", "Verifying new tab opened has Privacy Policy page heading failed", status ? "PASS" : "FAIL");
-        //     takeScreenshot(driver, "Failure", "TestCase9");
-        //     logStatus("End TestCase",
-        //             "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
-        //             status ? "PASS" : "FAIL");
-        // }
+    //     Set<String> handles = driver.getWindowHandles();
+    //     driver.switchTo().window(handles.toArray(new String[handles.size()])[1]);
+    //     WebElement PrivacyPolicyHeading = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/h2"));
+    //     status = PrivacyPolicyHeading.getText().equals("Privacy Policy");
+    //     // if (!status) {
+    //     //     logStatus("Step Failure", "Verifying new tab opened has Privacy Policy page heading failed", status ? "PASS" : "FAIL");
+    //     //     takeScreenshot(driver, "Failure", "TestCase9");
+    //     //     logStatus("End TestCase",
+    //     //             "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
+    //     //             status ? "PASS" : "FAIL");
+    //     // }
         
-        assertTrue(status,"Verifying new tab opened has Privacy Policy page heading failed");
+    //     assertTrue(status,"Verifying new tab opened has Privacy Policy page heading failed");
 
-        driver.switchTo().window(handles.toArray(new String[handles.size()])[0]);
-        driver.findElement(By.linkText("Terms of Service")).click();
+    //     driver.switchTo().window(handles.toArray(new String[handles.size()])[0]);
+    //     driver.findElement(By.linkText("Terms of Service")).click();
 
-        handles = driver.getWindowHandles();
-        driver.switchTo().window(handles.toArray(new String[handles.size()])[2]);
-        WebElement TOSHeading = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/h2"));
-        status = TOSHeading.getText().equals("Terms of Service");
-        // if (!status) {
-        //     logStatus("Step Failure", "Verifying new tab opened has Terms Of Service page heading failed", status ? "PASS" : "FAIL");
-        //     takeScreenshot(driver, "Failure", "TestCase9");
-        //     logStatus("End TestCase",
-        //             "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
-        //             status ? "PASS" : "FAIL");
-        // }
+    //     handles = driver.getWindowHandles();
+    //     driver.switchTo().window(handles.toArray(new String[handles.size()])[2]);
+    //     WebElement TOSHeading = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/h2"));
+    //     status = TOSHeading.getText().equals("Terms of Service");
+    //     // if (!status) {
+    //     //     logStatus("Step Failure", "Verifying new tab opened has Terms Of Service page heading failed", status ? "PASS" : "FAIL");
+    //     //     takeScreenshot(driver, "Failure", "TestCase9");
+    //     //     logStatus("End TestCase",
+    //     //             "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
+    //     //             status ? "PASS" : "FAIL");
+    //     // }
 
-        assertTrue(status,"Verifying new tab opened has Terms Of Service page heading failed");
-        driver.close();
-        driver.switchTo().window(handles.toArray(new String[handles.size()])[1]).close();
-        driver.switchTo().window(handles.toArray(new String[handles.size()])[0]);
+    //     assertTrue(status,"Verifying new tab opened has Terms Of Service page heading failed");
+    //     driver.close();
+    //     driver.switchTo().window(handles.toArray(new String[handles.size()])[1]).close();
+    //     driver.switchTo().window(handles.toArray(new String[handles.size()])[0]);
 
-        logStatus("End TestCase",
-        "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
-        "PASS");
-        takeScreenshot(driver, "EndTestCase", "TestCase9");
+    //     logStatus("End TestCase",
+    //     "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
+    //     "PASS");
+    //     takeScreenshot(driver, "EndTestCase", "TestCase9");
 
-        // return status;
-    }
+    //     // return status;
+    // }
 
 
  
-    @Test
-    public void TestCase10() throws InterruptedException {
-        logStatus("Start TestCase",
-                "Test Case 10: Verify that contact us option is working correctly ",
-                "DONE");
-        takeScreenshot(driver, "StartTestCase", "TestCase10");
+    // @Test
+    // public void TestCase10() throws InterruptedException {
+    //     logStatus("Start TestCase",
+    //             "Test Case 10: Verify that contact us option is working correctly ",
+    //             "DONE");
+    //     takeScreenshot(driver, "StartTestCase", "TestCase10");
 
-        Home homePage = new Home(driver);
-        homePage.navigateToHome();
+    //     Home homePage = new Home(driver);
+    //     homePage.navigateToHome();
 
-        driver.findElement(By.xpath("//*[text()='Contact us']")).click();
+    //     driver.findElement(By.xpath("//*[text()='Contact us']")).click();
 
-        WebElement name = driver.findElement(By.xpath("//input[@placeholder='Name']"));
-        name.sendKeys("crio user");
-        WebElement email = driver.findElement(By.xpath("//input[@placeholder='Email']"));
-        email.sendKeys("criouser@gmail.com");
-        WebElement message = driver.findElement(By.xpath("//input[@placeholder='Message']"));
-        message.sendKeys("Testing the contact us page");
+    //     WebElement name = driver.findElement(By.xpath("//input[@placeholder='Name']"));
+    //     name.sendKeys("crio user");
+    //     WebElement email = driver.findElement(By.xpath("//input[@placeholder='Email']"));
+    //     email.sendKeys("criouser@gmail.com");
+    //     WebElement message = driver.findElement(By.xpath("//input[@placeholder='Message']"));
+    //     message.sendKeys("Testing the contact us page");
 
-        WebElement contactUs = driver.findElement(
-                By.xpath("/html/body/div[2]/div[3]/div/section/div/div/div/form/div/div/div[4]/div/button"));
+    //     WebElement contactUs = driver.findElement(
+    //             By.xpath("/html/body/div[2]/div[3]/div/section/div/div/div/form/div/div/div[4]/div/button"));
 
-        contactUs.click();
+    //     contactUs.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.invisibilityOf(contactUs));
+    //     WebDriverWait wait = new WebDriverWait(driver, 30);
+    //     wait.until(ExpectedConditions.invisibilityOf(contactUs));
 
-        logStatus("End TestCase",
-                "Test Case 10: Verify that contact us option is working correctly ",
-                "PASS");
+    //     logStatus("End TestCase",
+    //             "Test Case 10: Verify that contact us option is working correctly ",
+    //             "PASS");
 
-        takeScreenshot(driver, "EndTestCase", "TestCase10");
+    //     takeScreenshot(driver, "EndTestCase", "TestCase10");
      
-    }
+    // }
 
 
-    @Test
-    public void TestCase11() throws InterruptedException {
-        Boolean status = false;
-        logStatus("Start TestCase",
-                "Test Case 11: Ensure that the links on the QKART advertisement are clickable",
-                "DONE");
-        takeScreenshot(driver, "StartTestCase", "TestCase11");
+    // @Test
+    // public void TestCase11() throws InterruptedException {
+    //     Boolean status = false;
+    //     logStatus("Start TestCase",
+    //             "Test Case 11: Ensure that the links on the QKART advertisement are clickable",
+    //             "DONE");
+    //     takeScreenshot(driver, "StartTestCase", "TestCase11");
             
-        //assertFalse(status);
-        Register registration = new Register(driver);
-        registration.navigateToRegisterPage();
-        status = registration.registerUser("testUser", "abc@123", true);
-        // if (!status) {
-        //     logStatus("TestCase 11",
-        //             "Test Case Failure. Ensure that the links on the QKART advertisement are clickable",
-        //             "FAIL");
-        //     takeScreenshot(driver, "Failure", "TestCase11");
-        // }
+    //     //assertFalse(status);
+    //     Register registration = new Register(driver);
+    //     registration.navigateToRegisterPage();
+    //     status = registration.registerUser("testUser", "abc@123", true);
+    //     // if (!status) {
+    //     //     logStatus("TestCase 11",
+    //     //             "Test Case Failure. Ensure that the links on the QKART advertisement are clickable",
+    //     //             "FAIL");
+    //     //     takeScreenshot(driver, "Failure", "TestCase11");
+    //     // }
 
-        assertTrue(status,"Links are not available");
-        lastGeneratedUserName = registration.lastGeneratedUsername;
+    //     assertTrue(status,"Links are not available");
+    //     lastGeneratedUserName = registration.lastGeneratedUsername;
 
-        Login login = new Login(driver);
-        login.navigateToLoginPage();
-        status = login.PerformLogin(lastGeneratedUserName, "abc@123");
-    //     if (!status) {
-    //         logStatus("Step Failure", "User Perform Login Failed", status ? "PASS" : "FAIL");
-    //         takeScreenshot(driver, "Failure", "TestCase 11");
-    //         logStatus("End TestCase",
-    //                 "Test Case 11:  Ensure that the links on the QKART advertisement are clickable",
-    //                 status ? "PASS" : "FAIL");
-    //   }
-        assertTrue(status,"User Perform Login Failed");
+    //     Login login = new Login(driver);
+    //     login.navigateToLoginPage();
+    //     status = login.PerformLogin(lastGeneratedUserName, "abc@123");
+    // //     if (!status) {
+    // //         logStatus("Step Failure", "User Perform Login Failed", status ? "PASS" : "FAIL");
+    // //         takeScreenshot(driver, "Failure", "TestCase 11");
+    // //         logStatus("End TestCase",
+    // //                 "Test Case 11:  Ensure that the links on the QKART advertisement are clickable",
+    // //                 status ? "PASS" : "FAIL");
+    // //   }
+    //     assertTrue(status,"User Perform Login Failed");
 
-        Home homePage = new Home(driver);
-        homePage.navigateToHome();
+    //     Home homePage = new Home(driver);
+    //     homePage.navigateToHome();
 
-        status = homePage.searchForProduct("YONEX Smash Badminton Racquet");
-        homePage.addProductToCart("YONEX Smash Badminton Racquet");
-        homePage.changeProductQuantityinCart("YONEX Smash Badminton Racquet", 1);
-        homePage.clickCheckout();
+    //     status = homePage.searchForProduct("YONEX Smash Badminton Racquet");
+    //     homePage.addProductToCart("YONEX Smash Badminton Racquet");
+    //     homePage.changeProductQuantityinCart("YONEX Smash Badminton Racquet", 1);
+    //     homePage.clickCheckout();
 
-        Checkout checkoutPage = new Checkout(driver);
-        checkoutPage.addNewAddress("Addr line 1  addr Line 2  addr line 3");
-        checkoutPage.selectAddress("Addr line 1  addr Line 2  addr line 3");
-        checkoutPage.placeOrder();
-        Thread.sleep(3000);
+    //     Checkout checkoutPage = new Checkout(driver);
+    //     checkoutPage.addNewAddress("Addr line 1  addr Line 2  addr line 3");
+    //     checkoutPage.selectAddress("Addr line 1  addr Line 2  addr line 3");
+    //     checkoutPage.placeOrder();
+    //     Thread.sleep(3000);
 
-        String currentURL = driver.getCurrentUrl();
+    //     String currentURL = driver.getCurrentUrl();
 
-        List<WebElement> Advertisements = driver.findElements(By.xpath("//iframe"));
+    //     List<WebElement> Advertisements = driver.findElements(By.xpath("//iframe"));
 
-        status = Advertisements.size() == 3;
-        logStatus("Step ", "Verify that 3 Advertisements are available", status ? "PASS" : "FAIL");
+    //     status = Advertisements.size() == 3;
+    //     logStatus("Step ", "Verify that 3 Advertisements are available", status ? "PASS" : "FAIL");
 
-        WebElement Advertisement1 = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/iframe[1]"));
-        driver.switchTo().frame(Advertisement1);
-        driver.findElement(By.xpath("//button[text()='Buy Now']")).click();
-        driver.switchTo().parentFrame();
+    //     WebElement Advertisement1 = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/iframe[1]"));
+    //     driver.switchTo().frame(Advertisement1);
+    //     driver.findElement(By.xpath("//button[text()='Buy Now']")).click();
+    //     driver.switchTo().parentFrame();
 
-        assertTrue(status);
-        status = !driver.getCurrentUrl().equals(currentURL);
-        logStatus("Step ", "Verify that Advertisement 1 is clickable ", status ? "PASS" : "FAIL");
+    //     assertTrue(status);
+    //     status = !driver.getCurrentUrl().equals(currentURL);
+    //     logStatus("Step ", "Verify that Advertisement 1 is clickable ", status ? "PASS" : "FAIL");
 
-        assertTrue(status);
-        driver.get(currentURL);
-        Thread.sleep(3000);
+    //     assertTrue(status);
+    //     driver.get(currentURL);
+    //     Thread.sleep(3000);
 
-        WebElement Advertisement2 = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/iframe[2]"));
-        driver.switchTo().frame(Advertisement2);
-        driver.findElement(By.xpath("//button[text()='Buy Now']")).click();
-        driver.switchTo().parentFrame();
+    //     WebElement Advertisement2 = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/iframe[2]"));
+    //     driver.switchTo().frame(Advertisement2);
+    //     driver.findElement(By.xpath("//button[text()='Buy Now']")).click();
+    //     driver.switchTo().parentFrame();
 
-        status = !driver.getCurrentUrl().equals(currentURL);
-        logStatus("Step ", "Verify that Advertisement 2 is clickable ", status ? "PASS" : "FAIL");
+    //     status = !driver.getCurrentUrl().equals(currentURL);
+    //     logStatus("Step ", "Verify that Advertisement 2 is clickable ", status ? "PASS" : "FAIL");
 
-        logStatus("End TestCase",
-                "Test Case 11:  Ensure that the links on the QKART advertisement are clickable",
-                status ? "PASS" : "FAIL");
+    //     logStatus("End TestCase",
+    //             "Test Case 11:  Ensure that the links on the QKART advertisement are clickable",
+    //             status ? "PASS" : "FAIL");
        
-    }
+    // }
 
 
 
